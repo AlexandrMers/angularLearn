@@ -1,0 +1,15 @@
+<button (click)="clickBtn('clicked')"  class="btn btn-primary">добавить машину</button>
+<hr>
+
+<app-car></app-car>
+<app-car></app-car>
+
+<hr>
+
+<input type="text" class="form-control" #myInput (keyup.enter)="changeText(myInput.value)" />
+
+<hr>
+
+<input type="text" class="form-control" [(ngModel)]="inputText" />
+
+<p>{{inputText}}</p>

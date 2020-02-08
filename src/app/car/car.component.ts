@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+
+import {CarInterface} from "../cars/cars.component";
 
 @Component({
-  selector: 'app-car',
+  selector: '[app-car]',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
 
 
-export class CarComponent  {
-  carName: string = "Ford";
-  carYear = 2017;
+export class CarComponent {
+  @Input() car: CarInterface;
 
-  getName() {
-    return this.carName;
+ @Output() onDelete = new EventEmitter<any>();
+
+  public btnClick(): void {
+    this.onDelete.emit();
   }
 }

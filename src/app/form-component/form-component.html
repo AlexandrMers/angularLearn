@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label class="d-block">
+        Название машины
+        <input type="text" class="form-control mb-2" [(ngModel)]="carName">
+    </label>
+    <label class="d-block">
+        Год выпуска машины
+        <input type="number" class="form-control mb-2" [(ngModel)]="carYear">
+    </label>
+    <button (click)="onClickAddCar()"
+            [disabled]="(carName === '') || (carYear === null)"
+            class="btn btn-outline-dark mt-3">
+        Добавить машину
+    </button>
+</div>

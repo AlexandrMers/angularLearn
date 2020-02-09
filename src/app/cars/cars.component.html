@@ -1,6 +1,0 @@
-<form-component (onAddCar)="onAddCar($event)"></form-component>
-<hr>
-Добавленные машины:
-<ul class="list-group">
-    <li app-car class="list-group-item" *ngFor="let car of Cars; let idx = index" [car]="car" (onDelete)="deleteItem(idx)"></li>
-</ul>

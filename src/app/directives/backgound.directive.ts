@@ -1,10 +1,11 @@
-import {Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: "[appBackground]"
 })
 export class BackgoundDirective implements  OnInit {
-
+  @Input() hoverColor: string = 'green';
+  @Input() defaultColor: string = 'transparent';
 
   @HostBinding('style.backgroundColor') background: string;
   constructor(
@@ -17,11 +18,11 @@ export class BackgoundDirective implements  OnInit {
     this.renderer.setStyle(nativeElement, 'background-color', 'blue');
 }
 
-  @HostListener('mouseenter', ['$event']) mouseEnter(event: Event) { // Таким образом можно прослушивать события на элементе, на который вешаем данную директиву.
-    this.background = 'red';
+  @HostListener('mouseenter', ['$event']) mouseEnter(event: Event) {  // Таким образом можно прослушивать события на элементе, на который вешаем данную директиву.
+    this.background = this.hoverColor;
   };
 
   @HostListener('mouseleave', ['$event']) mouseLeave(event: Event) {
-    this.background = 'blue';
+    this.background = this.defaultColor;
   };
 }

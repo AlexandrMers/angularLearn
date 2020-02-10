@@ -1,9 +1,14 @@
 <div>
-    <div class="container container_auto">
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-              <h3 appBackground>{{headerText}}</h3>
-            </div>
-        </div>
+  <div class="container container_auto">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <h3
+            appBackground
+            [hoverColor]="'orange'"
+            [defaultColor]="'yellow'">
+          {{headerText}}
+        </h3>
+      </div>
     </div>
+  </div>
 </div>

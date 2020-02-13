@@ -1,18 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 //components
 import { AppComponent } from './app.component';
 
-import {FormsModule} from '@angular/forms';
 
-//Directives
-import {BackgoundDirective} from './directives/backgound.directive';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BackgoundDirective
+    AppComponent
   ],
     imports: [
         BrowserModule,

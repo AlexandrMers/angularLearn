@@ -4,11 +4,13 @@ import {FormsModule} from '@angular/forms';
 
 //components
 import { AppComponent } from './app.component';
+import {PowPipe} from './pipes/pow.pipe';
 
 
 
 @NgModule({
   declarations: [
+    PowPipe,
     AppComponent
   ],
     imports: [

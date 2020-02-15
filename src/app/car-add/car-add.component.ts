@@ -1,17 +1,20 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 
+//Providers
+import {CarsService} from '../../services/cars.service';
+
 @Component({
   selector: "car-add",
   templateUrl: "./car-add.component.html",
   styleUrls: ["./car-add.component.css"]
 })
 export class CarAdd {
-  @Output() onAddCar = new EventEmitter();
   public carName = "";
 
+  constructor(private serviceCars: CarsService) {}
 
   public addCar() {
-    this.onAddCar.emit(this.carName);
+    this.serviceCars.addCar(this.carName);
     this.carName = "";
   }
 }

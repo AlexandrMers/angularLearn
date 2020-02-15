@@ -4,8 +4,7 @@ import {ConsoleService} from "../../services/console.service";
 @Component({
   selector: "app-car",
   templateUrl: "./app-car.component.html",
-  styleUrls: ["./app-car.component.css"],
-  providers: [ConsoleService]
+  styleUrls: ["./app-car.component.css"]
 })
 export class AppCar {
   @Input() car: {name: string; isSold: boolean};

@@ -9,6 +9,7 @@ import {AppCar} from './car/app-car.component';
 
 //providers
 import {CarsService} from '../services/cars.service';
+import {ConsoleService} from '../services/console.service';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {CarsService} from '../services/cars.service';
         FormsModule
     ],
   providers: [
-    CarsService
+    CarsService,
+    ConsoleService
   ],
   bootstrap: [AppComponent]
 })

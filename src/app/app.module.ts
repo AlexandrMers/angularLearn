@@ -4,16 +4,15 @@ import {FormsModule} from '@angular/forms';
 
 //components
 import { AppComponent } from './app.component';
-
-// pipes
-import {CarFilterPipe} from './pipes/carFilter.pipe';
-
+import {CarAdd} from './car-add/car-add.component';
+import {AppCar} from './car/app-car.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarFilterPipe
+    CarAdd,
+    AppCar
   ],
     imports: [
         BrowserModule,

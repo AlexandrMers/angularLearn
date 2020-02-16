@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 interface AnswerInterface {
   type: string;
@@ -22,5 +23,9 @@ export class AppComponent   {
       text: 'нет'
     }
   ];
+
+  public submitForm(form: NgForm) {
+    console.log('submitted form ', form);
+  }
 
 }

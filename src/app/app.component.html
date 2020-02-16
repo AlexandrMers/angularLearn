@@ -8,16 +8,22 @@
           id="name"
           type="text"
           class="form-control"
+          [ngClass]="{'is-invalid': form.get('email').invalid && form.get('email').touched, 'is-valid': form.get('email').valid && form.get('email').touched}"
         >
+        <p *ngIf="form.get('email').invalid && form.get('email').touched" class="invalid-feedback">Введен некорректный адрес электронной почты!</p>
       </div>
-      <div class="form-group" >
+      <div class="form-group">
         <label for="password">Пароль</label>
         <input
           formControlName="password"
           id="password"
           type="password"
           class="form-control"
+          [ngClass]="{'is-invalid': form.get('password').invalid && form.get('password').touched,
+          'is-valid': form.get('password').valid && form.get('password').touched
+          }"
         >
+        <p *ngIf="form.get('password').invalid && form.get('password').touched" class="invalid-feedback">Пароль не должен быть пустым!</p>
       </div>
     </div>
     <div class="form-group">
@@ -43,6 +49,7 @@
     <button
       class="btn btn-success"
       type="submit"
+      [disabled]="!form.valid"
     >Сохранить
     </button>
   </form>

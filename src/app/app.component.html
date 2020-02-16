@@ -1,16 +1,40 @@
 <div class="container container_main">
   <form (ngSubmit)="submitForm(form)" #form='ngForm'>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'is-invalid': email.invalid && email.touched}">
       <label for="name">Email</label>
-      <input ngModel name="email" id="name" type="text" class="form-control">
+      <input
+        required
+        ngModel
+        name="email"
+        id="name"
+        type="text"
+        class="form-control"
+        email
+        #email='ngModel'
+      >
+      <p [class]="'invalid-feedback'" *ngIf="email.invalid && email.touched">Введите корректный email</p>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{'is-invalid': password.invalid && password.touched}" >
       <label for="password">Пароль</label>
-      <input ngModel name="password" id="password" type="password" class="form-control">
+      <input
+        required
+        ngModel
+        name="password"
+        id="password"
+        type="password"
+        class="form-control"
+        #password='ngModel'
+      >
+      <p class="invalid-feedback" *ngIf="password.invalid && password.touched">Пароль не должен быть пустым!</p>
     </div>
     <div class="form-group">
       <label>Выберите страну</label>
-      <select name="country" ngModel class="form-control">
+      <select
+        name="country"
+        ngModel
+        class="form-control"
+        required
+      >
       <option value="ru">Россия</option>
       <option value="by">Белоруссия</option>
       <option value="ua">Украина</option>
@@ -18,10 +42,20 @@
     </div>
     <div class="radio" *ngFor="let answer of answers">
       <label>
-        <input ngModel name="answer" type="radio" [value]="answer.type"> {{answer.text}}
+        <input
+          required
+          ngModel
+          name="answer"
+          type="radio"
+          [value]="answer.type"
+        > {{answer.text}}
       </label>
     </div>
-    <button class="btn btn-success" type="submit">Сохранить</button>
+    <button
+      [disabled]="!form.valid"
+      class="btn btn-success"
+      type="submit"
+    >Сохранить</button>
   </form>
 
 </div>

@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 //components
 import {AppComponent} from './app.component';
@@ -11,7 +12,8 @@ import {AppComponent} from './app.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule // Для реактивного подхода валидации форм используется данная библиотека.
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

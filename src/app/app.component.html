@@ -11,7 +11,10 @@
           class="form-control"
           [ngClass]="{'is-invalid': form.get('user.email').invalid && form.get('user.email').touched, 'is-valid': form.get('user.email').valid && form.get('user.email').touched}"
         >
-        <p *ngIf="form.get('user.email').invalid && form.get('user.email').touched" class="invalid-feedback">Введен некорректный адрес электронной почты!</p>
+        <p *ngIf="form.get('user.email').invalid && form.get('user.email').touched" class="invalid-feedback">
+          <span *ngIf="form.get('user.email').errors['email']">Введен некорректный адрес электронной почты!</span>
+          <span *ngIf="form.get('user.email').errors['isUsed']">Такой адрес уже занят</span>
+        </p>
       </div>
       <div class="form-group">
         <label for="password">Пароль</label>
@@ -24,7 +27,10 @@
           'is-valid': form.get('user.password').valid && form.get('user.password').touched
           }"
         >
-        <p *ngIf="form.get('user.password').invalid && form.get('user.password').touched" class="invalid-feedback">Пароль не должен быть пустым!</p>
+        <p *ngIf="form.get('user.password').invalid && form.get('user.password').touched" class="invalid-feedback">
+          <span *ngIf="form.get('user.password').errors['required'] && form.get('user.password').touched">Пароль не должен быть пустым!</span>
+          <span *ngIf="form.get('user.password').errors['errorLength'] && form.get('user.password').touched">Пароль должен быть не менее 6 символов</span>
+        </p>
       </div>
     </div>
     </div>

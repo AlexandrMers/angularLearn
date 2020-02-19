@@ -7,9 +7,12 @@
   <ul class="list-group">
     <li
       *ngFor="let car of cars"
-      class="list-group-item"
+      class="list-group-item d-flex justify-content-between"
     >
-      <span class="badge">{{car.id}}</span> {{car.name}} {{car.color}}
+      <button (click)="toChangeRandomColor(car)" class="btn btn-sm btn-info">изменить цвет</button>
+      {{car.name}}
+
+      <span class="badge" [ngStyle]="{'background': car.color}">{{car.id}}</span>
     </li>
   </ul>
 </div>

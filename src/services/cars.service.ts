@@ -24,4 +24,13 @@ export class CarsService {
     return this.http.post('http://localhost:3000/cars', data)
       .map((response: Response) => response.json());
   }
+
+  changeColor(car: CarsInterface, color: string) {
+    const data = {
+      ...car,
+      color
+    };
+    return this.http.put(`http://localhost:3000/cars/${car.id}`, data)
+      .map((response:Response) => response.json());
+  }
 }

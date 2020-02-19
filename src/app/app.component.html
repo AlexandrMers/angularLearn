@@ -1,5 +1,8 @@
 <div class="container container_main">
+  <input type="text" [(ngModel)]="carName" class="form-control">
+  <hr>
   <button class="btn btn-primary" (click)="getData()">Загрузить машины</button>
+  <button class="btn btn-success" (click)="addCar()">Добавить машину</button>
   <hr>
   <ul class="list-group">
     <li

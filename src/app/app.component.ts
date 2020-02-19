@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {CarsService} from '../services/cars.service';
 
 
-interface CarsInterface {
+export interface CarsInterface {
   name: string;
   id: number;
   color: string;
@@ -16,6 +16,7 @@ interface CarsInterface {
 })
 export class AppComponent {
   public cars = [];
+  public carName: string = "";
 
   constructor(private carsService: CarsService) {}
 
@@ -24,5 +25,10 @@ export class AppComponent {
     this.carsService.getCars().subscribe((cars: CarsInterface[]) => {
       this.cars = cars;
     });
+  }
+
+  public addCar() {
+    this.carsService.addCar(this.carName).subscribe(car => this.cars.push(car));
+    this.carName = "";
   }
 }

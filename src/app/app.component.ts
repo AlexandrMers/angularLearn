@@ -1,6 +1,14 @@
 import {Component} from '@angular/core';
 import {CarsService} from '../services/cars.service';
 
+
+interface CarsInterface {
+  name: string;
+  id: number;
+  color: string;
+}
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,9 +21,8 @@ export class AppComponent {
 
 
   public getData() {
-    this.carsService.getCars().subscribe(data => {
-      console.log(JSON.parse(data["_body"]));
-      this.cars = JSON.parse(data["_body"]);
+    this.carsService.getCars().subscribe((cars: CarsInterface[]) => {
+      this.cars = cars;
     });
   }
 }

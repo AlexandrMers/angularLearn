@@ -10,6 +10,7 @@
       class="list-group-item d-flex justify-content-between"
     >
       <button (click)="toChangeRandomColor(car)" class="btn btn-sm btn-info">изменить цвет</button>
+      <button (click)="deleteCar(car)" class="btn btn-sm btn-danger">Удалить машину</button>
       {{car.name}}
 
       <span class="badge" [ngStyle]="{'background': car.color}">{{car.id}}</span>

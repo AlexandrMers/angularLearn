@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
-import {CarsService} from '../services/cars.service';
 
+import {CarsService} from '../services/cars.service';
 
 export interface CarsInterface {
   name: string;
@@ -28,7 +28,7 @@ export class AppComponent {
 
   constructor(
     private carsService: CarsService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
 
@@ -51,4 +51,10 @@ export class AppComponent {
       this.cars.find(elem => elem.id === car.id).color = car.color;
     });
   }
+
+  public deleteCar(car: CarsInterface) {
+    this.carsService.deleteCar(car.id).subscribe(() => {
+      this.cars = this.cars.filter(elem => elem.id !== car.id);
+    });
+  };
 }

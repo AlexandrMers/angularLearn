@@ -33,4 +33,9 @@ export class CarsService {
     return this.http.put(`http://localhost:3000/cars/${car.id}`, data)
       .map((response:Response) => response.json());
   }
+
+  deleteCar(id: number) {
+    return this.http.delete(`http://localhost:3000/cars/${id}`)
+    .map((response: Response) => response.json());
+  }
 }
